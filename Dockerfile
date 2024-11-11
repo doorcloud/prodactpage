@@ -43,8 +43,9 @@ ENV OTEL_SERVICE_NAME="kubecon-products"
 ENV OTEL_LOG_LEVEL="debug"
 ENV OTEL_PROPAGATORS="tracecontext"
 
+ENV FLASK_APP=productpage.py
 # CMD ["opentelemetry-instrument", "gunicorn", "-b", "[::]:9080", "productpage:app", "-w", "8", "--keep-alive", "2", "-k", "gevent"]
-CMD ["opentelemetry-instrument", "python", "-m", "flask", "run", "--host=0.0.0.0", "--port=9080", "productpage.py"]
+CMD ["opentelemetry-instrument", "python", "-m", "flask", "run", "--host=0.0.0.0", "--port=9080"]
 
 
 USER 1000
