@@ -44,7 +44,7 @@ ENV OTEL_LOG_LEVEL="debug"
 ENV OTEL_PROPAGATORS="tracecontext"
 
 # CMD ["opentelemetry-instrument", "gunicorn", "-b", "[::]:9080", "productpage:app", "-w", "8", "--keep-alive", "2", "-k", "gevent"]
-CMD ["opentelemetry-instrument", "python", "-m", "flask", "run", "--host=0.0.0.0", "--port=9080"]
+CMD ["opentelemetry-instrument", "python", "-m", "flask", "run", "--host=0.0.0.0", "--port=9080", "productpage.py"]
 
 
 USER 1000
