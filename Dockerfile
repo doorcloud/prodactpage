@@ -35,11 +35,11 @@ EXPOSE 9080
 WORKDIR /opt/microservices
 RUN python -m unittest discover
 
-# RUN pip install opentelemetry-sdk opentelemetry-instrumentation opentelemetry-exporter-otlp
-RUN pip install opentelemetry-instrumentation "opentelemetry-distro[otlp]" 
+RUN pip install opentelemetry-sdk opentelemetry-instrumentation opentelemetry-exporter-otlp
+# RUN pip install opentelemetry-instrumentation opentelemetry-exporter-otlp
 ENV OTEL_EXPORTER_OTLP_ENDPOINT="http://tempo-simplest-distributor.door-tracing.svc.cluster.local:4318"
 ENV OTEL_EXPORTER_OTLP_PROTOCOL="http/protobuf"
-ENV OTEL_SERVICE_NAME="kubecon"
+ENV OTEL_SERVICE_NAME="kubecon-products"
 ENV OTEL_LOG_LEVEL="debug"
 ENV OTEL_PROPAGATORS="tracecontext"
 
